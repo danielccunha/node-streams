@@ -1,0 +1,15 @@
+{
+  "name": "node-streams",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:danielccunha/node-streams.git",
+  "author": "Daniel Cunha <danielcunha54@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node --transpile-only"
+  },
+  "devDependencies": {
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
