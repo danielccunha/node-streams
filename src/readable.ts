@@ -1,19 +1,8 @@
 import { cyan, yellow } from "chalk";
 import { createReadStream } from "fs";
-import { resolve } from "path";
-
 import csv from "csv-parser";
 
-const FILES = [
-  {
-    filename: "stock-exchange.csv",
-    filepath: resolve(__dirname, "..", "data", "stock-exchange.csv"),
-  },
-  {
-    filename: "plrabn12.txt",
-    filepath: resolve(__dirname, "..", "data", "plrabn12.txt"),
-  },
-];
+import { files } from "./files";
 
 export async function readFile(filepath: string) {
   // Create read stream with filepath and optional options
@@ -34,7 +23,7 @@ export async function readFile(filepath: string) {
 
 export async function readCSV() {
   const output = [];
-  const stream = createReadStream(FILES[0].filepath);
+  const stream = createReadStream(files[0].filepath);
 
   // In this case the DATA event returns the parsed row instead of a raw string, and the
   // HEADERS events, specific of the package, returns the headers/column names of the CSV
@@ -45,5 +34,5 @@ export async function readCSV() {
     .on("end", () => console.log(`Completed reading CSV with ${yellow(output.length)} items`));
 }
 
-readFile(FILES[1].filepath);
+readFile(files[1].filepath);
 readCSV();
