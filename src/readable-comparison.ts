@@ -6,7 +6,7 @@ import { readFile } from "fs/promises";
 import { files } from "./files";
 
 export async function executeFilesystem() {
-  console.log(`Start reading files using ${yellow("filesystem")} library`);
+  console.log(`Started reading files using ${yellow("filesystem")} library`);
   const startTime = dayjs();
   const promises = files.map((file) => readFile(file.filepath));
   await Promise.all(promises);
@@ -16,7 +16,7 @@ export async function executeFilesystem() {
 }
 
 export async function executeStreams() {
-  console.log(`Start reading files using ${cyan("streams")}`);
+  console.log(`Started reading files using ${cyan("streams")}`);
   const startTime = dayjs();
   const promises = files.map((file) => {
     return new Promise((resolve) => {
